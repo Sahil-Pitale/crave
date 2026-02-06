@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Successful</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.success{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f7fff9;
+}
+
+.card{
+  background:#fff;
+  padding:40px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.1);
+  animation:pop 0.6s ease;
+}
+
+.check{
+  font-size:60px;
+  color:#2ecc71;
+}
+
+@keyframes pop{
+  from{transform:scale(0.8);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<div class="success">
+  <div class="card">
+    <div class="check">✔</div>
+    <h2>Order Placed Successfully!</h2>
+    <p>Your delicious veg food is on the way 🌱</p>
+    <a href="index.html"><button>Back to Home</button></a>
+  </div>
+</div>
+
+</body>
+</html>

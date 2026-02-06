@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRAVE | Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        .cart-box {
+            max-width: 900px;
+            /* perfect readable width */
+            margin: 60px auto;
+            /* CENTER horizontally */
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .cart-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .cart-box th {
+            background: #f3f3f3;
+            padding: 12px;
+            font-weight: 600;
+        }
+
+        .cart-box td {
+            padding: 14px;
+            text-align: center;
+        }
+
+        .cart-box a button{
+               width: 100%;
+            margin-top: 15px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .cart-box a button:hover {
+            background: #25b863;
+        }
+
+        .empty {
+            text-align: center;
+            font-size: 18px;
+            color: gray;
+        }
+
+        .qty-btn {
+            padding: 4px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .remove {
+            background: #ff3b3b;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        .page-layout {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-box {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body class="page-layout">
+
+
+    <header class="navbar">
+        <div class="logo"><a href="index.html">🌿 <b>CRAVE</b></a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#speciall">Menu</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+    </header>
+
+    <div class="cart-box">
+        <h2>Your Cart</h2>
+
+        <table width="100%" id="cartTable"></table>
+
+        <p class="empty" id="emptyMsg"></p>
+
+        <h3 align="right">Total: ₹<span id="grandTotal">0</span></h3>
+        <a href="checkout.html"><button>Proceed to Checkout</button></a>
+    </div>
+
+    <!-- <footer id="foot">
+        <p>© 2025 CRAVE | Pure Veg 🌱</p>
+    </footer> -->
+
+    <!--footer-->
+    <footer class="crave-footer">
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>🌿 CRAVE</h3>
+                <p>
+                    Pure vegetarian food made with love, freshness, and quality.
+                    Bringing joy to your plate every day.
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#speciall">Menu</a>
+                <a href="add-to-cart.html">Cart</a>
+                <a href="about-us.html">About Us</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>📍 Ahmedabad, India</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉️ cravefood@gmail.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 CRAVE | Pure Veg 🌱</p>
+        </div>
+    </footer>
+
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let table = document.getElementById("cartTable");
+
+        if (cart.length === 0) {
+            document.getElementById("emptyMsg").innerText = "🛒 Your cart is empty";
+        } else {
+            table.innerHTML = `
+  <tr>
+    <th>Item</th><th>Price</th><th>Qty</th><th>Total</th><th>Action</th>
+  </tr>`;
+        }
+
+        function render() {
+            let total = 0;
+            table.innerHTML = `
+  <tr>
+    <th>Item</th><th>Price</th><th>Qty</th><th>Total</th><th>Action</th>
+  </tr>`;
+
+            cart.forEach((item, i) => {
+                let t = item.price * item.qty;
+                total += t;
+                table.innerHTML += `
+    <tr>
+      <td>${item.name}</td>
+      <td>₹${item.price}</td>
+      <td>
+        <button onclick="change(${i},-1)">−</button>
+        ${item.qty}
+        <button onclick="change(${i},1)">+</button>
+      </td>
+      <td>₹${t}</td>
+      <td><button class="remove" onclick="removeItem(${i})">Remove</button></td>
+    </tr>`;
+            });
+
+            document.getElementById("grandTotal").innerText = total;
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        function change(i, val) {
+            cart[i].qty += val;
+            if (cart[i].qty < 1) cart[i].qty = 1;
+            render();
+        }
+
+        function removeItem(i) {
+            cart.splice(i, 1);
+            render();
+        }
+
+        render();
+    </script>
+
+</body>
+
+</html>

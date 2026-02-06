@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CRAVE | Veg Food</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <a href="#homee">🌿 <b>CRAVE</b></a>
+    </div>
+    <nav>
+      <a href="#homee"><b> Home</b></a>
+      <a href="#speciall"><b>Menu</b></a>
+      <a href="#reservee"><b>Reserve</b></a>
+      <a href="about-us.html"><b>About-us</b></a>
+      <a href="add-to-cart.html"><b>Add-to-cart</b></a>
+    </nav>
+  </header>
+
+  <section id="homee" class="hero">
+    <div class="hero-text">
+      <br>
+      <h1>Choosing The<br><span>Best Veg Food</span></h1>
+      <p>Bringing joy to your plate with love.</p>
+      <a href="#speciall"><button>ORDER NOW</button></a>
+    </div>
+    <div class="hero-img">
+
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">🥗 Fresh Ingredients</div>
+    <div class="feature">🎟 Discount Offers</div>
+    <div class="feature">⚡ Fast Delivery</div>
+  </section>
+
+  <section id="speciall" class="special"><br>
+    <h2>Today's Special</h2>
+
+    <div class="filter">
+      <button class="active" onclick="filterFood('all', this)">All</button>
+      <button onclick="filterFood('pizza', this)">Pizza</button>
+      <button onclick="filterFood('indian', this)">Indian</button>
+      <button onclick="filterFood('burger', this)">Burger</button>
+      <button onclick="filterFood('salad', this)">Salad</button>
+      <button onclick="filterFood('snacks', this)">Snacks</button>
+    </div>
+
+    <div class="grid">
+      <div class="card pizza">
+        <img src="images/pizaa.png">
+        <h3>Margherita Pizza</h3>
+        <p>₹150</p>
+        <button onclick="addToCart('Margherita Pizza',150)">🛒Add to Cart</button>
+      </div>
+
+      <div class="card indian">
+        <img src="images/tikka.png">
+        <h3>Paneer Tikka</h3>
+        <p>₹200</p>
+        <button onclick="addToCart('Paneer Tikka',200)">🛒Add to Cart</button>
+      </div>
+
+      <div class="card burger">
+        <img src="images/burger.png">
+        <h3>Veg Burger</h3>
+        <p>₹130</p>
+        <button onclick="addToCart('Veg Burger',130)">🛒Add to Cart</button>
+      </div>
+
+      <div class="card indian">
+        <img src="images/biryani.png">
+        <h3>Veg Biryani</h3>
+        <p>₹180</p>
+        <button onclick="addToCart('Veg Biryani',180)">🛒Add to Cart</button>
+      </div>
+
+      <div class="card salad">
+        <img src="images/salad.png">
+        <h3>Veg Salad</h3>
+        <p>₹120</p>
+        <button onclick="addToCart('Veg Salad',120)">🛒Add to Cart</button>
+      </div>
+
+      <div class="card snacks">
+        <img src="images/sandwich.png">
+        <h3>Veg Sandwich</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('Veg Sandwich',100)">🛒Add to Cart</button>
+      </div>
+
+      <div class="card snacks">
+        <img src="images/hakka.png">
+        <h3>Hakka Noodles</h3>
+        <p>₹140</p>
+        <button onclick="addToCart('Hakka Noodles',140)">🛒Add to Cart</button>
+      </div>
+
+      <div class="card snacks">
+        <img src="images/rolls.png">
+        <h3>Spring Rolls</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('Spring Rolls',100)">🛒Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="reservee" class="reserve">
+    <h2>Reserve a Table</h2>
+    <form onsubmit="return rev()">
+      <input type="text" placeholder="Your Name" id="name">
+      <input type="number" placeholder="People" id="people">
+      <input type="date" id="date">
+      <button type="submit">Reserve Now</button>
+    </form>
+  </section>
+
+  <!-- <footer id="foot">
+    <p>© 2025 CRAVE | Pure Veg 🌱</p>
+  </footer> -->
+  <footer class="crave-footer">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>🌿 CRAVE</h3>
+      <p>
+        Pure vegetarian food made with love, freshness, and quality.
+        Bringing joy to your plate every day.
+      </p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="index.html#speciall">Menu</a>
+      <a href="add-to-cart.html">Cart</a>
+      <a href="about-us.html">About Us</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p>📍 Ahmedabad, India</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ cravefood@gmail.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 CRAVE | Pure Veg 🌱</p>
+  </div>
+</footer>
+
+
+  <div class="loader-container">
+      <!-- Gif Source Link: https://tenor.com/view/gb-notebook-laptop-gif-17733403 -->
+      <img src="/images/mainLoader.gif" alt="">
+    </div>
+    <!-- Loader End -->
+
+  <script src="script.js"></script>
+</body>
+
+</html>

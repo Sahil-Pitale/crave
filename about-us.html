@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | CRAVE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  /* ===== ABOUT US PAGE ===== */
+  /* ===== ABOUT PAGE NAVBAR FIX ===== */
+.about-navbar{
+  position: sticky;
+  top: 0;
+  background:#b9ffb9;
+  z-index:1000;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 60px;
+}
+
+.about-navbar nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#2e7d32;
+  font-weight:500;
+}
+
+.about-navbar nav a.active{
+  border-bottom:2px solid #2e7d32;
+}
+
+@media(max-width:768px){
+  .nav-container{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+
+
+.about-hero{
+  /* margin-top:90px; */
+  background:linear-gradient(to right,#2e7d32,#66bb6a);
+  color:white;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.about-hero h1{
+  font-size:42px;
+}
+
+.about-hero span{
+  color:#fffaf3;
+}
+
+.about-section{
+  display:flex;
+  gap:40px;
+  padding:60px 80px;
+  align-items:center;
+}
+
+.about-text{
+  flex:1;
+}
+
+.about-text h2{
+  color:#2e7d32;
+  margin-bottom:10px;
+}
+
+.about-text p{
+  line-height:1.7;
+  margin-bottom:20px;
+  color:#444;
+}
+
+.about-image{
+  flex:1;
+  text-align:center;
+}
+
+.about-image img{
+  width:100%;
+  max-width:400px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.about-stats{
+  display:flex;
+  justify-content:space-around;
+  background:#f3f7f3;
+  padding:50px 20px;
+}
+
+.stat{
+  text-align:center;
+}
+
+.stat h3{
+  font-size:32px;
+  color:#2e7d32;
+}
+
+.about-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  padding:60px;
+}
+
+.about-card{
+  background:#fff;
+  padding:20px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.about-card:hover{
+  transform:translateY(-8px);
+}
+
+.about-card img{
+  width:80px;
+  margin-bottom:15px;
+}
+
+@media(max-width:768px){
+  .about-cards{
+    grid-template-columns:1fr;
+    padding:30px;
+  }
+}
+
+.about-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  padding:40px 60px;
+}
+
+.about-gallery img{
+  width:100%;
+  border-radius:15px;
+}
+
+@media(max-width:768px){
+  .about-gallery{
+    grid-template-columns:repeat(2,1fr);
+    padding:20px;
+  }
+}
+
+
+/* MOBILE */
+@media(max-width:768px){
+  .about-section{
+    flex-direction:column;
+    padding:40px 20px;
+  }
+
+  .about-hero h1{
+    font-size:32px;
+  }
+
+  .about-stats{
+    flex-direction:column;
+    gap:20px;
+  }
+}
+
+</style>
+<body>
+
+<!-- NAVBAR (same as home) -->
+<header class="about-navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html">🌿 CRAVE</a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html">Menu</a>
+      <a href="add-to-cart.html">Cart</a>
+      <a class="active" href="about-us.html">About</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="about-hero">
+  <h1>About <span>CRAVE</span></h1>
+  <p>Pure Vegetarian Food • Fresh • Hygienic 🌱</p>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-section">
+  <div class="about-text">
+    <h2>Who We Are</h2>
+    <p>
+      CRAVE is a modern vegetarian food brand focused on delivering
+      delicious, healthy, and hygienic meals.  
+      Every dish is prepared with love, freshness, and quality ingredients.
+    </p>
+
+    <h2>Our Mission</h2>
+    <p>
+      Our mission is to make pure vegetarian food exciting, affordable,
+      and accessible while maintaining the highest quality standards.
+    </p>
+  </div>
+
+  <div class="about-image">
+    <img src="images/biryani.png" alt="Veg Food">
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="about-stats">
+  <div class="stat">
+    <h3>5000+</h3>
+    <p>Happy Customers</p>
+  </div>
+  <div class="stat">
+    <h3>50+</h3>
+    <p>Veg Dishes</p>
+  </div>
+  <div class="stat">
+    <h3>100%</h3>
+    <p>Pure Veg</p>
+  </div>
+</section>
+
+<section class="about-gallery">
+  <img src="images/burger.png">
+  <img src="images/pizaa.png">
+  <img src="images/sandwich.png">
+  <img src="images/rolls.png">
+</section>
+
+<section class="about-cards">
+  <div class="about-card">
+    <img src="images/salad.png">
+    <h3>Fresh Ingredients</h3>
+    <p>We use farm-fresh vegetables in every dish.</p>
+  </div>
+
+  <div class="about-card">
+    <img src="images/tikka.png">
+    <h3>Expert Chefs</h3>
+    <p>Our chefs craft every meal with love & hygiene.</p>
+  </div>
+
+  <div class="about-card">
+    <img src="images/biryani.png">
+    <h3>Pure Veg</h3>
+    <p>100% vegetarian, no compromise on taste.</p>
+  </div>
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+ <footer class="crave-footer">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>🌿 CRAVE</h3>
+      <p>
+        Pure vegetarian food made with love, freshness, and quality.
+        Bringing joy to your plate every day.
+      </p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="index.html#speciall">Menu</a>
+      <a href="add-to-cart.html">Cart</a>
+      <a href="about-us.html">About Us</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p>📍 Ahmedabad, India</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ cravefood@gmail.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 CRAVE | Pure Veg 🌱</p>
+  </div>
+</footer>
+
+</body>
+</html>

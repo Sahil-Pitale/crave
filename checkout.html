@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form {
+            max-width: 450px;
+            margin: 80px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0
+        }
+
+        .form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .form textarea {
+            resize: none;
+            height: 90px;
+        }
+
+        .form button {
+            width: 100%;
+            margin-top: 15px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background: #25b863;
+        }
+
+        .page-layout {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form {
+            flex: 1;
+        }
+
+        /*payment method*/
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+
+        .payment-options label {
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        #upiId {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body class="page-layout">
+
+
+    <header class="navbar">
+        <div class="logo"><a href="index.html">🌿 <b>CRAVE</b></a></div>
+    </header>
+
+    <div class="form">
+        <h2>Checkout</h2>
+
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="tel" id="phone" placeholder="Phone Number">
+        <textarea id="address" placeholder="Delivery Address"></textarea>
+
+        <h3>Payment Method</h3>
+
+        <div class="payment-options">
+            <label>
+                <input type="radio" name="payment" value="COD" checked>
+                Cash on Delivery
+            </label>
+
+            <label>
+                <input type="radio" name="payment" value="UPI">
+                UPI
+            </label>
+        </div>
+
+        <input type="text" id="upiId" placeholder="Enter UPI ID" style="display:none;">
+
+
+        <h3>Total: ₹<span id="total"></span></h3>
+
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let sum = 0;
+        cart.forEach(i => sum += i.price * i.qty);
+        document.getElementById("total").innerText = sum;
+
+        function placeOrder() {
+            alert("Order Placed Successfully 🎉");
+            localStorage.removeItem("cart");
+            window.location.href = "vrushika.html";
+        }
+
+        //payment method
+        let paymentRadios = document.getElementsByName("payment");
+        let upiInput = document.getElementById("upiId");
+
+        paymentRadios.forEach(radio => {
+            radio.addEventListener("change", () => {
+                upiInput.style.display = radio.value === "UPI" && radio.checked
+                    ? "block" : "none";
+            });
+        });
+        //form validation
+        function placeOrder() {
+            let name = document.getElementById("name").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let address = document.getElementById("address").value.trim();
+            let payment = document.querySelector('input[name="payment"]:checked').value;
+            let upi = document.getElementById("upiId").value.trim();
+
+            if (name === "" || phone === "" || address === "") {
+                alert("Please fill all details");
+                return;
+            }
+
+            if (phone.length !== 10) {
+                alert("Enter valid 10-digit phone number");
+                return;
+            }
+
+            if (payment === "UPI" && upi === "") {
+                alert("Please enter UPI ID");
+                return;
+            }
+
+            localStorage.removeItem("cart");
+            window.location.href = "order-success.html";
+        }
+
+    </script>
+    <footer class="crave-footer">
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>🌿 CRAVE</h3>
+                <p>
+                    Pure vegetarian food made with love, freshness, and quality.
+                    Bringing joy to your plate every day.
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#speciall">Menu</a>
+                <a href="add-to-cart.html">Cart</a>
+                <a href="about-us.html">About Us</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>📍 Ahmedabad, India</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉️ cravefood@gmail.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 CRAVE | Pure Veg 🌱</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
